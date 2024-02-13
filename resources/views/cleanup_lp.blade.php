@@ -46,7 +46,7 @@
                 </div>
               </div>
               
-              <div class="col-sm-12 col-lg-6 w-100 overflow-hidden rounded-3xl border-4 border-dashed border-black">
+              <div class="col-12 col-lg-6 w-100 overflow-hidden rounded-3xl border-4 border-dashed border-black">
                 <div class="d-flex flex-column align-items-center justify-center px-4 py-4 text-center cursor-pointer">
                   <p class=" text-center ">
                   <strong>
