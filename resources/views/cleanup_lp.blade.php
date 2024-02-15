@@ -16,51 +16,104 @@
   .upload_text {
 
   }
+  .custom-bg-light-blue-1{
+background-color:#3498db14
+  }
+  .custom-text-dark-blue{
+    color: #155783
+  }
+  .custom-text-light-blue{
+    color: #15578394
+  }
+  .custom-w-fit{
+    width: fit-content
+  }
+  .primary-btn{
+        background: #3498db;
+    padding: 12px 40px;
+    margin-left: 30px;
+    border-radius: 16px;
+    color: #fff;
+    border: none;
+  }
+  .primary-btn:hover{
+        color: #fff;
+    background: #4aa3df;
+  }
 </style>
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
 
      
     {{--=============== Image Upload ===============--}}
-      
     <div class="container">
       <div class="row">
     <div class="pt-5 pb-5">
-      <h1 class="d-flex flex-column text-center">
-        <span>
-          <span class="bg-gradient-to-tr from-cyan-500 to-blue-600 bg-clip-text text-transparent">
-            Remove text</span><br>from any image</span></h1>
-            <div class="d-flex">
+        <h1 class="d-flex flex-column text-center">
+          <span > 
+            <span class="bg-gradient-to-tr from-cyan-500 bg-clip-text text-transparent" >
+              Remove text</span><br>from any image
+          </span>
+        </h1>
+            <div class="d-flex justify-content-around mt-5 row">
               
-              <div class="col-sm-12 col-lg-6 w-100 overflow-hidden rounded-3xl border-4 border-dashed border-black">
-                <div class="d-flex flex-column align-items-center justify-center px-4 py-4 text-center cursor-pointer">
+              <div class="col-sm-12 col-12 col-lg-4 col-md-5  overflow-hidden  rounded-4 position-relative custom-bg-light-blue-1">
+                <div class="d-flex flex-column align-items-center justify-center py-5 text-center cursor-pointer ">
                   <p class=" text-center ">
-                    <strong>
+                    <strong class="custom-text-dark-blue" role='button'>
 
                       Primary Image
                     </strong>
-                    <br>
-                    Drag &amp; drop an image or click here to select
+                    <br><br>
+                    <span class="custom-text-light-blue">
+
+                      Drag &amp; drop an image or click here to select
+                    </span>
                   </p>
-                  <input type="file" class=" " accept="image/png,image/jpeg">
                 </div>
-              </div>
-              
-              <div class="col-12 col-lg-6 w-100 overflow-hidden rounded-3xl border-4 border-dashed border-black">
-                <div class="d-flex flex-column align-items-center justify-center px-4 py-4 text-center cursor-pointer">
-                  <p class=" text-center ">
-                  <strong>
-                    Masking Image
-                  </strong>
-                    <br>
-                    Drag &amp; drop an image or click here to select
-                  </p>
-                  <input type="file" class=" " accept="image/png,image/jpeg">
+                <div class="h-100 w-100 opacity-0 bg-black top-0 position-absolute">
+
+                  <input type="file" class="h-100 w-100 " accept="image/png,image/jpeg">
                 </div>
               </div>
 
+              <div class="col-sm-12 col-12 col-lg-4 col-md-5  overflow-hidden  rounded-4 position-relative custom-bg-light-blue-1 mt-lg-0 mt-md-0 mt-sm-5 mt-5" >
+                <div class="d-flex flex-column align-items-center justify-center py-5 text-center ">
+                  <p class=" text-center ">
+                    <strong class="custom-text-dark-blue" role='button'>
+
+                      Masking Image
+                    </strong>
+                    <br><br>
+                    <span class="custom-text-light-blue">
+
+                      Drag &amp; drop an image or click here to select
+                    </span>
+                  </p>
+                </div>
+                <div class="h-100 w-100 opacity-0 bg-black top-0 position-absolute">
+
+                  <input type="file" class="h-100 w-100 " accept="image/png,image/jpeg">
+                </div>
+              </div>
+
+              
+              
+              
             </div>
             
+          </div>
+          <div class="col-12">
+
+            <div class="mx-auto custom-w-fit ">
+
+              <button class="primary-btn">
+              <h4 class="mb-0">
+
+                Submit
+              </h4>  
+            </button>
+            </div>
           </div>
       </div>
     </div>
