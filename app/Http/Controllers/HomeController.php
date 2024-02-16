@@ -22,6 +22,64 @@ class HomeController extends Controller
     {
         return view('background_lp');
     }
+    public function post_background_remove(Request $request)
+    {
+        $request->validate([
+            'primary_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $primary_image_fileName = time() . '.' . $request->primary_image->extension();
+        $request->primary_image->storeAs('public/images', $primary_image_fileName);
+ 
+        $newimage = new Image();
+        $newimage->primary_image_path = $primary_image_fileName;
+        $newimage->save();
+
+
+        $form = [
+            'image_file' => asset('storage/images/' . $primary_image_fileName),
+        ];
+
+        try {
+            // return response()->json([
+            //     'processed_image_path' => 'http://vividly.test/storage/images/background_removed_1708072926.jpg',
+            // ]);
+            
+            $processedImage = $this->clip_drop_services->removeBackground($form);
+
+            // Saveing the processed image
+            $processed_image_fileName = 'background_removed_' . $primary_image_fileName;
+            file_put_contents(storage_path('app/public/images/' . $processed_image_fileName), $processedImage);
+
+            // Update the Image model with the processed image path
+            $newimage->morphed_image_path = $processed_image_fileName;
+            $newimage->save();
+
+          
+            return response()->json([
+                'processed_image_path' => asset('storage/images/' . $processed_image_fileName),
+                'message' => 'porcessed successfully'
+
+            ]);
+
+        } catch (\Exception $e) {
+            if($e instanceof \GuzzleHttp\Exception\ClientException){
+                $response = $e->getResponse();
+                $statusCode = $response->getStatusCode();
+                $errorBody = json_decode($response->getBody(), true);
+        
+                $errorMessage = isset($errorBody['error']) ? $errorBody['error'] : 'Unknown error';
+                
+                return response()->json([
+                    'status' => 'error',
+                    'message' => $errorMessage,
+                    'client_error' => $e->getMessage()
+
+                ], $statusCode);
+            }
+        }
+    }
+
     public function get_cleanup()
     {
         return view('cleanup_lp');
@@ -29,7 +87,9 @@ class HomeController extends Controller
 
     public function post_cleanup(Request $request)
     {
-      
+        // return response()->json([
+        //     'processed_image_path' => 'http://vividly.test/storage/images/background_removed_1708072926.jpg',
+        // ]);
         $request->validate([
             'primary_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'masking_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -65,6 +125,7 @@ class HomeController extends Controller
 
             return response()->json([
                 'processed_image_path' => asset('storage/images/' . $processed_image_fileName),
+                'message' => 'porcessed successfully'
             ]);
 
         } catch (\Exception $e) {

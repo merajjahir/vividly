@@ -42,7 +42,7 @@ class ClipDropService
     public function cleanup($form)
     {
         $form['image_file'] = $this->streamFactory->createStreamFromFile($form['image_file']);
-        // $form['mask_file'] = $this->streamFactory->createStreamFromFile($form['mask_file']);
+        $form['mask_file'] = $this->streamFactory->createStreamFromFile($form['mask_file']);
  
         $response = $this->client->request('POST', 'https://clipdrop-api.co/cleanup/v1', [
             'headers' => [

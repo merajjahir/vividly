@@ -8,7 +8,6 @@ export default defineConfig({
             input: [
                 'resources/css/app.css','resources/js/app.js', // fakadi
                 'resources/assets/css/style.css',
-                'resources/assets/js/main.js',
                 ...(await import('glob')).sync("resources/assets/vendor/aos/*.js", { ignore: 'resources/assets/vendor/aos/*.esm.*' }),
                 ...(await import('glob')).sync("resources/assets/vendor/aos/*.css", { ignore: 'resources/assets/vendor/aos/*.esm.*' }),
                 

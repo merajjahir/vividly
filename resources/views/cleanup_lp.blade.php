@@ -157,7 +157,7 @@
             }
         }
 
-        let url_post_image_url = "{{ route('post_image');}}";
+        let url_post_image_url = "{{ route('post_cleanup');}}";
         function image_processing(event,form){
             
             event.preventDefault();
@@ -167,13 +167,13 @@
 
             console.log('from submited');
             console.log(url_post_image_url);
+            loader_status(true)
             
             fetch(url_post_image_url, {
                 method: 'POST',
                 body: formData
             })
             .then(response => {
-                loader_status(true)
                 return response.json()
             })
             .then(data => {
@@ -185,9 +185,17 @@
                     let clientError = data.client_error.split(' response:')[0].split('Client error:')[1].trim();
                     let mainError = data.client_error.split(' response:\n')[1].trim();
     
-                    var notyf = new Notyf();
+                    let notyf = new Notyf();
                     notyf.error(`${clientError}`);
  
+                }else{
+                    document.getElementById('modalImage').src = data.processed_image_path;
+                    document.getElementById('downloadButton').href = data.processed_image_path;
+                    const modal = new bootstrap.Modal(document.getElementById('imageModal'));
+                    modal.show();
+
+                    let notyf = new Notyf();
+                    notyf.success(`${data.message}`);
                 }
                 loader_status(false)
 

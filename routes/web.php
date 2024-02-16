@@ -16,8 +16,9 @@ use Illuminate\Support\Facades\Route;
  
 Route::get('/', [HomeController::class,'get_home']);
 Route::get('/background_remove', [HomeController::class,'get_background_remove']);
+Route::post('/background_remove', [HomeController::class,'post_background_remove'])->name('post_background_remove');
 Route::get('/cleanup', [HomeController::class,'get_cleanup']);
-Route::post('/cleanup', [HomeController::class,'post_cleanup'])->name('post_image');
+Route::post('/cleanup', [HomeController::class,'post_cleanup'])->name('post_cleanup');
  
 
 // Route::post('/', [TutorialController::class,'store'])->name('store');

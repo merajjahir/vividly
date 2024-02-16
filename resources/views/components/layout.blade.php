@@ -29,9 +29,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
   <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
   <!-- Vendor JS Files -->
+  <script  src="{{ Vite::asset('resources/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
   <script type="module" src="{{ Vite::asset('resources/assets/vendor/purecounter/purecounter_vanilla.js')}}"></script>
   <script type="module" src="{{ Vite::asset('resources/assets/vendor/aos/aos.js')}}"></script>
-  <script type="module" src="{{ Vite::asset('resources/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
   <script type="module" src="{{ Vite::asset('resources/assets/vendor/glightbox/js/glightbox.min.js')}}"></script>
   <script type="module" src="{{ Vite::asset('resources/assets/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
   <script type="module" src="{{ Vite::asset('resources/assets/vendor/php-email-form/validate.js')}}"></script>
@@ -53,7 +53,7 @@
     <div class="container d-flex align-items-center justify-content-between">
 
       <div class="logo">
-        <h1><a href="index.html">Vesperr</a></h1>
+        <h1><a href="/">Vividly</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src=" Vite::asset('resources/assets/img/logo.png')" alt="" class="img-fluid"></a>-->
       </div>
@@ -61,27 +61,8 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#features">Services</a></li> 
-          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-          <li><a class="getstarted scrollto" href="#about">Get Started</a></li>
+          <li><a class="nav-link scrollto" href="#about">About</a></li> 
+          <li><a class="getstarted scrollto" href="#features">Get Started</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -90,21 +71,21 @@
   </header><!-- End Header -->
 
   {{ $slot }}
-
+  <x-result-modal></x-result-modal>
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="container">
       <div class="row d-flex align-items-center">
         <div class="col-lg-6 text-lg-left text-center">
           <div class="copyright">
-            &copy; Copyright <strong>Vesperr</strong>. All Rights Reserved
+            &copy; Copyright <strong>Vividly</strong>. All Rights Reserved
           </div>
           <div class="credits">
             <!-- All the links in the footer should remain intact. -->
             <!-- You can delete the links only if you purchased the pro version. -->
             <!-- Licensing information: https://bootstrapmade.com/license/ -->
             <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/vesperr-free-bootstrap-template/ -->
-            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+            Designed by <a href="#">BootstrapMade</a>
           </div>
         </div>
         <div class="col-lg-6">
@@ -124,8 +105,7 @@
 
   <!-- Template Main JS File -->
 
-  <script defer src="{{ Vite::asset('resources/assets/js/main.js')}}"></script>
-  <script type="module" defer src="{{ Vite::asset('resources/js/app.js')}}"></script>
+  <script src="{{ Vite::asset('resources/js/app.js')}}"></script>
 </body>
 
 </html>
