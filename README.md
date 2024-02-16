@@ -7,7 +7,7 @@ Vividly is a web application which integrates Clipdrop api as a service provider
 
 ## Installation and Use
 
-First you need to clone the project oviously .. then run
+First you need to clone the project obviously .. then run
 
 ```bash
   cd vividly
