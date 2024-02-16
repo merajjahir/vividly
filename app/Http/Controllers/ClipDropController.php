@@ -25,4 +25,10 @@ class ClipDropController extends Controller
         return response()->json($result);
     }
 
+    public function cleanupProcess()
+    {
+      
+
+    }
+
 }

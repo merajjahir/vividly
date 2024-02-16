@@ -26,7 +26,8 @@
   <!-- Template Main CSS File -->
   <link href="{{ Vite::asset('resources/assets/css/style.css')}}" rel="stylesheet">
 
-  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
   <!-- Vendor JS Files -->
   <script type="module" src="{{ Vite::asset('resources/assets/vendor/purecounter/purecounter_vanilla.js')}}"></script>
   <script type="module" src="{{ Vite::asset('resources/assets/vendor/aos/aos.js')}}"></script>
@@ -124,6 +125,7 @@
   <!-- Template Main JS File -->
 
   <script defer src="{{ Vite::asset('resources/assets/js/main.js')}}"></script>
+  <script type="module" defer src="{{ Vite::asset('resources/js/app.js')}}"></script>
 </body>
 
 </html>
