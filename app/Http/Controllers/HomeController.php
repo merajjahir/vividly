@@ -41,9 +41,6 @@ class HomeController extends Controller
         ];
 
         try {
-            // return response()->json([
-            //     'processed_image_path' => 'http://vividly.test/storage/images/background_removed_1708072926.jpg',
-            // ]);
             
             $processedImage = $this->clip_drop_services->removeBackground($form);
 
@@ -87,9 +84,6 @@ class HomeController extends Controller
 
     public function post_cleanup(Request $request)
     {
-        // return response()->json([
-        //     'processed_image_path' => 'http://vividly.test/storage/images/background_removed_1708072926.jpg',
-        // ]);
         $request->validate([
             'primary_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'masking_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
